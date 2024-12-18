@@ -37,21 +37,48 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="container mx-auto px-4 py-8">
-            <header className="flex justify-between items-center mb-8">
-              <h1>
-                <Link href="/" className="text-2xl font-bold">
-                  IdeaVox
-                </Link>
-              </h1>
-              <div className="flex items-center space-x-4">
-                <ThemeToggle />
-                <GithubLogin />
+          <div className="min-h-screen flex flex-col">
+            <header className="border-b">
+              <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+                <h1 className="text-2xl font-bold">Idea Vox</h1>
+                <div className="flex items-center space-x-4">
+                  <ThemeToggle />
+                  <GithubLogin />
+                </div>
               </div>
             </header>
-            <main className="w-full max-w-3xl mx-auto">
+            <main className="w-full max-w-3xl mx-auto px-4 py-8">
               {children}
             </main>
+            <footer className="border-t">
+              <div className="container mx-auto px-4 py-4">
+                <nav>
+                  <ul className="flex justify-center space-x-4">
+                    <li>
+                      <Link href="/" className="text-blue-500 hover:underline">
+                        Home
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/app-ideas"
+                        className="text-blue-500 hover:underline"
+                      >
+                        App Ideas
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/built-apps"
+                        className="text-blue-500 hover:underline"
+                      >
+                        Built Apps
+                      </Link>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </footer>
           </div>
         </ThemeProvider>
       </body>

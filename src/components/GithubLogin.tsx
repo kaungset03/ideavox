@@ -3,11 +3,11 @@ import { Github } from "lucide-react";
 
 const GithubLogin = () => {
   return (
-    <Button variant="outline">
-      <Github className="mr-2 h-4 w-4" />
-      Login with GitHub
+    <Button variant="outline" className="flex items-center gap-x-2" title="Login with Github">
+      <Github className="h-4 w-4" />
+      <span className="hidden sm:block">Login with Github</span>
     </Button>
   );
-}
+};
 
 export default GithubLogin;

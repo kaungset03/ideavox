@@ -1,23 +1,13 @@
-import { PlusCircle } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { initialIdeas } from "@/constants/constants";
-import AppIdeaItem from "@/components/AppIdeaItem";
-
 const Home = () => {
   return (
-    <section>
-      <div className="flex items-center justify-between mb-6">
-        <h2 className="text-lg font-semibold">App Ideas</h2>
-        <Button className="flex items-center space-x-2">
-          <PlusCircle />
-          Submit Idea
-        </Button>
-      </div>
-      <ul className="flex flex-col gap-y-4">
-        {initialIdeas.map((idea) => (
-          <AppIdeaItem key={idea.id} idea={idea} />
-        ))}
-      </ul>
+    <section className="text-center">
+      <h2 className="text-3xl font-bold mb-8">
+        Welcome to App Ideas & Built Apps
+      </h2>
+      <p className="mb-4">
+        Explore innovative app ideas or discover apps that have been built.
+      </p>
+      <p>Use the navigation at the bottom to browse app ideas or built apps.</p>
     </section>
   );
 };
