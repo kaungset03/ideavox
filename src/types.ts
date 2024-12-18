@@ -1,5 +1,7 @@
+import { Models } from "node-appwrite";
+
 declare global {
-  type AppIdea = {
+  type AppIdea = Models.Document & {
     id: number;
     title: string;
     description: string;
