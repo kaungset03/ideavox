@@ -11,13 +11,9 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
-import { createIdea } from "@/lib/server/ideas";
 
-
-
-const SubmitIdea = () => {
+const SubmitApp = () => {
   const [isOpen, setIsOpen] = useState(false);
-
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
@@ -28,20 +24,20 @@ const SubmitIdea = () => {
       </DialogTrigger>
       <DialogContent className="w-[95%] max-w-lg">
         <DialogHeader>
-          <DialogTitle>Submit Your App Idea</DialogTitle>
+          <DialogTitle>Submit Your Built App</DialogTitle>
         </DialogHeader>
-        <form className="space-y-6" action={createIdea}>
+        <form className="space-y-6">
           <div>
             <label
-              htmlFor="title"
+              htmlFor="appName"
               className="block text-sm font-medium text-gray-700 mb-1"
             >
-              Idea Title
+              App Name
             </label>
             <Input
-              id="title"
-              name="title"
-              placeholder="Enter your app idea title"
+              id="appName"
+              name="name"
+              placeholder="Enter your app name"
               required
             />
           </div>
@@ -50,14 +46,44 @@ const SubmitIdea = () => {
               htmlFor="description"
               className="block text-sm font-medium text-gray-700 mb-1"
             >
-              Idea Description
+              App Description
             </label>
             <Textarea
               id="description"
               name="description"
-              placeholder="Describe your app idea in detail"
+              placeholder="Describe your app in detail"
               required
               rows={8}
+            />
+          </div>
+          <div>
+            <label
+              htmlFor="liveUrl"
+              className="block text-sm font-medium text-gray-700 mb-1"
+            >
+              Live URL
+            </label>
+            <Input
+              id="liveUrl"
+              type="url"
+              name="live"
+              placeholder="https://your-app-url.com"
+              required
+            />
+          </div>
+          <div>
+            <label
+              htmlFor="sourceCodeUrl"
+              className="block text-sm font-medium text-gray-700 mb-1"
+            >
+              Source Code URL
+            </label>
+            <Input
+              id="sourceCodeUrl"
+              type="url"
+              name="source"
+              placeholder="https://github.com/your-username/your-repo"
+              required
             />
           </div>
           <div className="flex justify-end">
@@ -68,4 +94,4 @@ const SubmitIdea = () => {
     </Dialog>
   );
 };
-export default SubmitIdea;
+export default SubmitApp;

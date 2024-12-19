@@ -6,41 +6,45 @@ import { z } from "zod";
 import { revalidatePath } from "next/cache";
 
 const FormSchema = z.object({
-  title: z.string().min(5),
+  name: z.string().min(5),
   description: z.string().min(10),
+  source: z.string().optional(),
+  live: z.string().url(),
 });
 
-export async function createIdea(formData: FormData) {
-  const { title, description } = FormSchema.parse({
-    title: formData.get("title") as string,
+export async function createApp(formData: FormData) {
+  const { name, description, source, live } = FormSchema.parse({
+    name: formData.get("name") as string,
     description: formData.get("description") as string,
+    source: formData.get("source") as string,
+    live: formData.get("live") as string,
   });
   const { databases, account } = await createSessionClient();
   const user = await account.get();
   await databases.createDocument(
     process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID!,
-    process.env.NEXT_PUBLIC_APPWRITE_IDEAS_COLLECTION_ID!,
+    process.env.NEXT_PUBLIC_APPWRITE_APPS_COLLECTION_ID!,
     ID.unique(),
     {
-      title,
+      name,
       description,
       userId: user.$id,
       username: user.name,
+      source,
+      live,
       created: new Date().toISOString(),
     }
   );
-  revalidatePath("/app-ideas");
+  revalidatePath("/built-apps");
 }
 
-export async function getIdeas() {
+export async function getApps() {
   try {
     const { databases } = await createAdminClient();
     const response = await databases.listDocuments(
       process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID!,
-      process.env.NEXT_PUBLIC_APPWRITE_IDEAS_COLLECTION_ID!,
-      [
-        Query.orderDesc("created"),
-      ]
+      process.env.NEXT_PUBLIC_APPWRITE_APPS_COLLECTION_ID!,
+      [Query.orderDesc("created")]
     );
     return response.documents;
   } catch (error) {
