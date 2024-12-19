@@ -11,6 +11,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
+import { createApp } from "@/lib/server/apps";
 
 const SubmitApp = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,14 +20,14 @@ const SubmitApp = () => {
       <DialogTrigger asChild>
         <Button className="flex items-center space-x-2">
           <PlusCircle />
-          Submit Idea
+          Submit App 
         </Button>
       </DialogTrigger>
       <DialogContent className="w-[95%] max-w-lg">
         <DialogHeader>
           <DialogTitle>Submit Your Built App</DialogTitle>
         </DialogHeader>
-        <form className="space-y-6">
+        <form className="space-y-6" action={createApp}>
           <div>
             <label
               htmlFor="appName"
@@ -83,7 +84,6 @@ const SubmitApp = () => {
               type="url"
               name="source"
               placeholder="https://github.com/your-username/your-repo"
-              required
             />
           </div>
           <div className="flex justify-end">

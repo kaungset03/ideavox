@@ -8,7 +8,7 @@ type AppIdeaItemProps = {
 
 const AppIdeaItem = ({ idea }: AppIdeaItemProps) => {
   return (
-    <Card className="hover:shadow-md transition-shadow duration-200">
+    <Card className="mb-2 hover:shadow-md transition-shadow duration-200">
       <CardContent className="p-4">
         <div className="flex items-center">
           <div className="flex flex-col items-center mr-4">

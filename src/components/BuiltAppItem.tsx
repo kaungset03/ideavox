@@ -8,7 +8,7 @@ type BuiltAppItemProps = {
 
 const BuiltAppItem = ({ app }: BuiltAppItemProps) => {
   return (
-    <Card className="mb-4 hover:shadow-md transition-shadow duration-200">
+    <Card className="mb-2 hover:shadow-md transition-shadow duration-200">
       <CardContent className="p-4">
         <div className="flex items-start">
           <div className="flex flex-col items-center mr-4">
@@ -31,7 +31,7 @@ const BuiltAppItem = ({ app }: BuiltAppItemProps) => {
               </a>
               {app.source && (
                 <a
-                  href={"https://github.com"}
+                  href={app.source}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm text-blue-500 hover:underline flex items-center mb-2"

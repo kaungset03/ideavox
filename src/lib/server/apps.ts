@@ -21,19 +21,23 @@ export async function createApp(formData: FormData) {
   });
   const { databases, account } = await createSessionClient();
   const user = await account.get();
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const documentData: any = {
+    name,
+    description,
+    userId: user.$id,
+    username: user.name,
+    live,
+    created: new Date().toISOString(),
+  };
+  if (source) {
+    documentData.source = source;
+  }
   await databases.createDocument(
     process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID!,
     process.env.NEXT_PUBLIC_APPWRITE_APPS_COLLECTION_ID!,
     ID.unique(),
-    {
-      name,
-      description,
-      userId: user.$id,
-      username: user.name,
-      source,
-      live,
-      created: new Date().toISOString(),
-    }
+    documentData
   );
   revalidatePath("/built-apps");
 }

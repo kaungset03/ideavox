@@ -1,10 +1,10 @@
-import Link from "next/link";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import ThemeToggle from "@/components/ThemeToggle";
 import GithubLogin from "@/components/GithubLogin";
+import Sidebar from "@/components/Sidebar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,7 +37,28 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="min-h-screen flex flex-col">
+          <div className="flex h-screen">
+            <Sidebar />
+            <div className="flex-1 flex flex-col overflow-hidden">
+              <header className="bg-gray-100 dark:bg-gray-800 shadow-sm">
+                <div className="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+                  <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
+                    Idea Vox
+                  </h1>
+                  <div className="flex items-center space-x-4">
+                    <ThemeToggle />
+                    <GithubLogin />
+                  </div>
+                </div>
+              </header>
+              <main className="flex-1 overflow-auto bg-gray-100 dark:bg-gray-800">
+                <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+                  {children}
+                </div>
+              </main>
+            </div>
+          </div>
+          {/* <div className="min-h-screen flex flex-col">
             <header className="border-b">
               <div className="container mx-auto px-4 py-4 flex justify-between items-center">
                 <h1 className="text-2xl font-bold">Idea Vox</h1>
@@ -79,7 +100,7 @@ export default function RootLayout({
                 </nav>
               </div>
             </footer>
-          </div>
+          </div> */}
         </ThemeProvider>
       </body>
     </html>
