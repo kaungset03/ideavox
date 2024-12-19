@@ -5,6 +5,8 @@ declare global {
     id: number;
     title: string;
     description: string;
+    userId: string;
+    username: string;
     vote: number;
   };
 }

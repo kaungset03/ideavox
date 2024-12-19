@@ -19,7 +19,7 @@ const AppIdeaItem = ({ idea }: AppIdeaItemProps) => {
           </div>
           <div className="flex-grow">
             <h3 className="text-lg font-semibold mb-1">{idea.title}</h3>
-            <p className="text-sm text-gray-500 mb-2">by erke_03</p>
+            <p className="text-sm text-gray-500 mb-2">by {idea.username}</p>
             <p className="text-sm text-gray-600 dark:text-gray-300">
               {idea.description}
             </p>

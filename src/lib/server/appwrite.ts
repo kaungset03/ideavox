@@ -16,6 +16,9 @@ export async function createSessionClient() {
     get account() {
       return new Account(client);
     },
+    get databases() {
+      return new Databases(client);
+    }
   };
 }
 
