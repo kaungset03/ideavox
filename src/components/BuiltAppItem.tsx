@@ -1,5 +1,4 @@
-import { Code, ExternalLink, Heart } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Code, ExternalLink } from "lucide-react";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 
 type BuiltAppItemProps = {
@@ -11,12 +10,12 @@ const BuiltAppItem = ({ app }: BuiltAppItemProps) => {
     <Card className="mb-4 hover:shadow-md transition-shadow duration-200">
       <CardContent className="p-4">
         <div className="flex items-center gap-x-4">
-          <div className="flex flex-col items-center">
+          {/* <div className="flex flex-col items-center">
             <Button variant="ghost" className="flex flex-col items-center">
               <Heart />
             </Button>
             <span className="text-sm font-bold">23</span>
-          </div>
+          </div> */}
           <div className="flex-grow">
             <div className="flex items-center mb-2">
               <div>

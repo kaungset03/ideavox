@@ -1,6 +1,4 @@
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import { Heart } from "lucide-react";
-import { Button } from "./ui/button";
 
 type AppIdeaItemProps = {
   idea: AppIdea;
@@ -11,12 +9,12 @@ const AppIdeaItem = ({ idea }: AppIdeaItemProps) => {
     <Card className="mb-4 hover:shadow-md transition-shadow duration-200">
       <CardContent className="p-4">
         <div className="flex items-center gap-x-4">
-          <div className="flex flex-col items-center">
+          {/* <div className="flex flex-col items-center">
             <Button variant="ghost" className="flex flex-col items-center">
               <Heart />
             </Button>
             <span className="text-sm font-bold">23</span>
-          </div>
+          </div> */}
           <div className="flex-grow">
             <h3 className="text-xl font-semibold mb-2">{idea.title}</h3>
             <p className={`text-sm text-gray-600 dark:text-gray-300`}>
