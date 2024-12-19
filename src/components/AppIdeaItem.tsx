@@ -1,4 +1,4 @@
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Heart } from "lucide-react";
 import { Button } from "./ui/button";
 
@@ -8,24 +8,26 @@ type AppIdeaItemProps = {
 
 const AppIdeaItem = ({ idea }: AppIdeaItemProps) => {
   return (
-    <Card className="mb-2 hover:shadow-md transition-shadow duration-200">
+    <Card className="mb-4 hover:shadow-md transition-shadow duration-200">
       <CardContent className="p-4">
-        <div className="flex items-center">
-          <div className="flex flex-col items-center mr-4">
-            <Button variant="ghost" size="sm" className="px-2">
-              <Heart className="h-4 w-4" />
+        <div className="flex items-center gap-x-4">
+          <div className="flex flex-col items-center">
+            <Button variant="ghost" className="flex flex-col items-center">
+              <Heart />
             </Button>
-            <span className="text-sm font-bold">{idea.vote}</span>
+            <span className="text-sm font-bold">23</span>
           </div>
           <div className="flex-grow">
-            <h3 className="text-lg font-semibold mb-1">{idea.title}</h3>
-            <p className="text-sm text-gray-500 mb-2">by {idea.username}</p>
-            <p className="text-sm text-gray-600 dark:text-gray-300">
+            <h3 className="text-xl font-semibold mb-2">{idea.title}</h3>
+            <p className={`text-sm text-gray-600 dark:text-gray-300`}>
               {idea.description}
             </p>
           </div>
         </div>
       </CardContent>
+      <CardFooter className="bg-gray-50 dark:bg-gray-800 px-4 py-2 text-sm text-gray-500 dark:text-gray-400">
+        <span>Posted by {idea.username}</span>
+      </CardFooter>
     </Card>
   );
 };

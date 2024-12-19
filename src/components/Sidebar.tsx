@@ -18,18 +18,18 @@ const Sidebar = () => {
   return (
     <div
       className={cn(
-        "h-screen bg-gray-100 dark:bg-gray-800 border-r border-r-slate-600 p-4 transition-all duration-300",
+        "h-screen bg-gray-50 dark:bg-gray-900 border-r border-r-slate-600 p-4 transition-all duration-300",
         isExpanded ? "w-64" : "w-20"
       )}
     >
       <Button
         variant="ghost"
         onClick={toggleSidebar}
-        className="w-full justify-start mb-4"
+        className="w-full justify-start mb-4 hover:bg-gray-200 dark:hover:bg-gray-700"
       >
         <Menu className="h-4 w-4" />
       </Button>
-      <nav className="space-y-2">
+      <nav className="flex flex-col gap-y-3">
         <Link href="/">
           <Button
             variant="ghost"

@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import ThemeToggle from "@/components/ThemeToggle";
 import GithubLogin from "@/components/GithubLogin";
 import Sidebar from "@/components/Sidebar";
+import { SnowEffect } from "@/components/SnowEffect";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -40,7 +41,7 @@ export default function RootLayout({
           <div className="flex h-screen">
             <Sidebar />
             <div className="flex-1 flex flex-col overflow-hidden">
-              <header className="bg-gray-100 dark:bg-gray-800 shadow-sm">
+              <header className="bg-gray-50 dark:bg-gray-900 shadow-sm">
                 <div className="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
                   <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
                     Idea Vox
@@ -51,7 +52,7 @@ export default function RootLayout({
                   </div>
                 </div>
               </header>
-              <main className="flex-1 overflow-auto bg-gray-100 dark:bg-gray-800">
+              <main className="flex-1 overflow-auto bg-gray-50 dark:bg-gray-900">
                 <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
                   {children}
                 </div>
@@ -101,6 +102,7 @@ export default function RootLayout({
               </div>
             </footer>
           </div> */}
+          <SnowEffect />
         </ThemeProvider>
       </body>
     </html>

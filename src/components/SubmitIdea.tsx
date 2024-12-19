@@ -26,7 +26,7 @@ const SubmitIdea = () => {
           Submit Idea
         </Button>
       </DialogTrigger>
-      <DialogContent className="w-[95%] max-w-lg">
+      <DialogContent className="w-[95%] max-w-xl">
         <DialogHeader>
           <DialogTitle>Submit Your App Idea</DialogTitle>
         </DialogHeader>
