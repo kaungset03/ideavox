@@ -8,7 +8,7 @@ export async function createSessionClient() {
     .setProject(process.env.NEXT_PUBLIC_APPWRITE_PROJECT!);
 
   const sessionCookies = await cookies();
-  const session = sessionCookies.get("session");
+  const session = sessionCookies.get("RAIN");
 
   client.setSession(session?.value || "");
 
@@ -42,7 +42,8 @@ export async function createAdminClient() {
 export async function getLoggedInUser() {
   try {
     const { account } = await createSessionClient();
-    return await account.get();
+    const user = await account.get();
+    return user;
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (error) {
     return null;
