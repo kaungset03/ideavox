@@ -9,7 +9,7 @@ import { Home, Lightbulb, Rocket, Menu } from "lucide-react";
 
 const Sidebar = () => {
   const pathname = usePathname();
-  const [isExpanded, setIsExpanded] = useState(true);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   const toggleSidebar = () => {
     setIsExpanded(!isExpanded);
