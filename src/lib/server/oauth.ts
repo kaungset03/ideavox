@@ -2,19 +2,18 @@
 
 import { createAdminClient, createSessionClient } from "@/lib/server/appwrite";
 import { redirect } from "next/navigation";
-import { cookies, headers } from "next/headers";
+import { cookies } from "next/headers";
 import { OAuthProvider } from "node-appwrite";
 import { revalidatePath } from "next/cache";
 
 export async function signUpWithGithub() {
   const { account } = await createAdminClient();
-
-  const origin = (await headers()).get("origin");
-  const path = (await headers()).get("path");
   const redirectUrl = await account.createOAuth2Token(
     OAuthProvider.Github,
-    `${origin}/oauth`,
-    `${origin}/${path}`
+    `${process.env.NEXT_PUBLIC_APP_URL}/oauth`,
+    `${process.env.NEXT_PUBLIC_APP_URL}/`
+    // `${origin}/oauth`,
+    // `${origin}/${path}`
   );
   return redirect(redirectUrl);
 }
