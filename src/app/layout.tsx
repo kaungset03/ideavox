@@ -42,7 +42,7 @@ export default function RootLayout({
           <div className="flex h-screen">
             <Sidebar />
             <div className="flex-1 flex flex-col overflow-hidden">
-              <header className="bg-gray-50 dark:bg-gray-900 shadow-sm">
+              <header className="shadow-sm">
                 <div className="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
                   <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
                     Idea Vox
@@ -53,7 +53,7 @@ export default function RootLayout({
                   </div>
                 </div>
               </header>
-              <main className="flex-1 overflow-auto bg-gray-50 dark:bg-gray-900">
+              <main className="flex-1 overflow-auto">
                 <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
                   {children}
                 </div>

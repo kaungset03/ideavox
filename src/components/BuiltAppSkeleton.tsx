@@ -3,7 +3,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 const AppSkeleton = () => {
   return (
-    <Card className="mb-4">
+    <Card className="mb-6">
       <CardContent className="p-4">
         <div className="flex-grow">
           <div className="flex flex-col gap-y-1">

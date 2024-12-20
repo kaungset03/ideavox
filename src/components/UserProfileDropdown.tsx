@@ -22,7 +22,7 @@ const UserProfileDropdown = ({ user }: UserProfileDropdownProps) => {
   return (
     <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
       <DropdownMenuTrigger asChild>
-        <div className="w-9 aspect-square rounded-md bg-gradient-to-r from-purple-400 via-pink-500 to-red-400 cursor-pointer" />
+        <div className="w-10 aspect-square rounded-md bg-gradient-to-r from-purple-400 via-pink-500 to-red-400 cursor-pointer" />
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56" align="end" forceMount>
         <DropdownMenuLabel className="font-normal">
@@ -35,8 +35,8 @@ const UserProfileDropdown = ({ user }: UserProfileDropdownProps) => {
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuItem>
-          <form action={logout}>
-            <Button variant={"ghost"} size={"sm"}>
+          <form action={logout} className="w-full">
+            <Button className="w-full" variant={"ghost"} size={"sm"}>
               <LogOut className="mr-2 h-4 w-4" />
               <span>Log out</span>
             </Button>

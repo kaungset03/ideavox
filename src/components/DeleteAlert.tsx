@@ -14,8 +14,8 @@ import { Button } from "@/components/ui/button";
 import { Trash2 } from "lucide-react";
 
 type DeleteAlertProps = {
-  onConfirm: () => Promise<void>
-}
+  onConfirm: () => Promise<void>;
+};
 
 const DeleteAlert = ({ onConfirm }: DeleteAlertProps) => {
   return (
@@ -27,10 +27,10 @@ const DeleteAlert = ({ onConfirm }: DeleteAlertProps) => {
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+          <AlertDialogTitle>Do you want to delete this?</AlertDialogTitle>
           <AlertDialogDescription>
-            This action cannot be undone. This will permanently delete your
-            account and remove your data from our servers.
+            Deleting this item is permanent and cannot be undone. Are you sure
+            you want to proceed?
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>

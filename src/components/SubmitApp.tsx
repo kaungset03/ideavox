@@ -60,7 +60,7 @@ const SubmitApp = () => {
           <div>
             <label
               htmlFor="appName"
-              className="block text-sm font-medium text-gray-700 mb-1"
+              className="block text-sm font-medium mb-1"
             >
               App Name
             </label>
@@ -76,7 +76,7 @@ const SubmitApp = () => {
           <div>
             <label
               htmlFor="description"
-              className="block text-sm font-medium text-gray-700 mb-1"
+              className="block text-sm font-medium mb-1"
             >
               App Description
             </label>
@@ -93,7 +93,7 @@ const SubmitApp = () => {
           <div>
             <label
               htmlFor="liveUrl"
-              className="block text-sm font-medium text-gray-700 mb-1"
+              className="block text-sm font-medium mb-1"
             >
               Live URL
             </label>
@@ -110,7 +110,7 @@ const SubmitApp = () => {
           <div>
             <label
               htmlFor="sourceCodeUrl"
-              className="block text-sm font-medium text-gray-700 mb-1"
+              className="block text-sm font-medium mb-1"
             >
               Source Code URL (optional)
             </label>

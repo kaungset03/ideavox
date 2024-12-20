@@ -14,7 +14,7 @@ const GithubLogin = async () => {
       <form action={signUpWithGithub}>
         <Button
           variant="outline"
-          className="flex items-center gap-x-2"
+          className="flex items-center gap-x-2 h-10"
           title="Login with Github"
         >
           <Github />

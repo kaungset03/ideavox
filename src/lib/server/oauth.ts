@@ -25,7 +25,6 @@ export async function logout() {
     (await cookies()).delete("RAIN");
     await account.deleteSession("current");
     revalidatePath("/")
-    return redirect("/");
   } catch (error) {
     console.error(error);
   }

@@ -27,16 +27,18 @@ const AppIdeaItem = ({ idea, user }: AppIdeaItemProps) => {
           <div className="flex-grow">
             <div className="flex items-start justify-between gap-x-5">
               <h3 className="text-xl font-semibold mb-2">{idea.title}</h3>
-              {user && user.$id === idea.userId && <DeleteAlert onConfirm={deleteItem} />}
+              {user && user.$id === idea.userId && (
+                <DeleteAlert onConfirm={deleteItem} />
+              )}
             </div>
-            <p className={`text-sm text-gray-600 dark:text-gray-300`}>
-              {idea.description}
-            </p>
+            <p className="text-sm">{idea.description}</p>
           </div>
         </div>
       </CardContent>
-      <CardFooter className="bg-gray-50 dark:bg-gray-800 px-4 py-2 text-sm text-gray-500 dark:text-gray-400">
-        <span>Posted by {idea.username}</span>
+      <CardFooter className="px-4 py-2 text-sm rounded-b-md bg-primary text-primary-foreground flex justify-between items-center">
+        <p>
+          Posted by <span className="font-medium">{idea.username}</span>
+        </p>
       </CardFooter>
     </Card>
   );

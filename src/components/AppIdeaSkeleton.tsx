@@ -3,7 +3,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 const IdeaSkeleton = () => {
   return (
-    <Card className="mb-4">
+    <Card className="mb-6">
       <CardContent className="p-4">
         <div className="flex-grow">
           <Skeleton className="h-6 w-2/4 mb-2" />

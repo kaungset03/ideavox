@@ -18,7 +18,7 @@ const Sidebar = () => {
   return (
     <div
       className={cn(
-        "h-screen bg-gray-50 dark:bg-gray-900 border-r border-r-slate-600 p-4 transition-all duration-300",
+        "h-screen border-r border-r-slate-600 p-4 transition-all duration-300",
         isExpanded ? "w-64" : "w-20"
       )}
     >

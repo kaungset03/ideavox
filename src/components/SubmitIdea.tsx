@@ -56,7 +56,7 @@ const SubmitIdea = () => {
           <div>
             <label
               htmlFor="title"
-              className="block text-sm font-medium text-gray-700 mb-1"
+              className="block text-sm font-medium mb-1"
             >
               Idea Title
             </label>
@@ -72,7 +72,7 @@ const SubmitIdea = () => {
           <div>
             <label
               htmlFor="description"
-              className="block text-sm font-medium text-gray-700 mb-1"
+              className="block text-sm font-medium mb-1"
             >
               Idea Description
             </label>

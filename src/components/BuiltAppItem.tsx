@@ -12,8 +12,8 @@ type BuiltAppItemProps = {
 
 const BuiltAppItem = ({ app, user }: BuiltAppItemProps) => {
   const deleteItem = async () => {
-    await deleteApp(app.$id)
-  }
+    await deleteApp(app.$id);
+  };
   return (
     <Card className="mb-4 hover:shadow-md transition-shadow duration-200">
       <CardContent className="p-4">
@@ -29,13 +29,15 @@ const BuiltAppItem = ({ app, user }: BuiltAppItemProps) => {
               <div className="w-full">
                 <div className="flex items-start justify-between gap-x-5">
                   <h3 className="text-xl font-semibold">{app.name}</h3>
-                  {user && user.$id === app.userId && <DeleteAlert onConfirm={deleteItem} />}
+                  {user && user.$id === app.userId && (
+                    <DeleteAlert onConfirm={deleteItem} />
+                  )}
                 </div>
                 <a
                   href={app.live}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-blue-500 hover:underline flex items-center"
+                  className="text-sm text-primary w-fit hover:underline flex items-center"
                 >
                   Live <ExternalLink className="h-3 w-3 ml-1" />
                 </a>
@@ -47,14 +49,16 @@ const BuiltAppItem = ({ app, user }: BuiltAppItemProps) => {
           </div>
         </div>
       </CardContent>
-      <CardFooter className="bg-gray-50 dark:bg-gray-800 px-4 py-2 text-sm text-gray-500 dark:text-gray-400 flex justify-between items-center">
-        <span>Posted by {app.username}</span>
+      <CardFooter className="rounded-b-md px-4 py-2 text-sm bg-primary text-primary-foreground flex justify-between items-center">
+        <p>
+          Posted by <span className="font-medium">{app.username}</span>
+        </p>
         {app.source && (
           <a
             href={app.source}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center hover:text-blue-500"
+            className="flex items-center hover:text-slate-50 transition-colors duration-300 ease-in-out"
           >
             <Code className="h-4 w-4 mr-1" />
             Source

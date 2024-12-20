@@ -9,7 +9,9 @@ const page = async () => {
   return (
     <section className="container mx-auto px-4 sm:px-0">
       <div className="flex items-center justify-between mb-6">
-        <h2 className="text-lg font-semibold">Built Apps</h2>
+        <h2 className="text-lg font-semibold">
+          
+        </h2>
         {user && <SubmitApp />}
       </div>
       <Suspense fallback={<BuiltAppSkeleton />}>
