@@ -1,8 +1,8 @@
 "use server";
 
-import { createAdminClient } from "@/lib/server/appwrite";
+import { createAdminClient, createSessionClient } from "@/lib/server/appwrite";
 import { redirect } from "next/navigation";
-import { headers } from "next/headers";
+import { cookies, headers } from "next/headers";
 import { OAuthProvider } from "node-appwrite";
 
 export async function signUpWithGithub() {
@@ -17,4 +17,11 @@ export async function signUpWithGithub() {
   );
 
   return redirect(redirectUrl);
+}
+
+
+export async function logout(){
+  const { account } = await createSessionClient();
+  (await cookies()).delete("RAIN");
+  await account.deleteSession("current");
 }

@@ -12,7 +12,7 @@ export async function GET(request: NextRequest) {
   }
   const session = await account.createSession(userId, secret);
 
-  (await cookies()).set("session", session.secret, {
+  (await cookies()).set("RAIN", session.secret, {
     path: "/",
     httpOnly: true,
     sameSite: "strict",

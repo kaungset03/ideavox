@@ -34,8 +34,8 @@ export default function Home() {
           <CardContent>
             <p>
               Browse through a collection of creative app ideas submitted by our
-              community. Get inspired, contribute your own ideas, or find your
-              next project to build.
+              community. Get inspired by innovative concepts, share your own
+              ideas, or find your next exciting project to build.
             </p>
           </CardContent>
           <CardFooter>
@@ -57,9 +57,9 @@ export default function Home() {
           </CardHeader>
           <CardContent>
             <p>
-              See how ideas transform into reality. Explore a showcase of apps
-              built and launched by our community members, and share your own
-              creations.
+              Explore a showcase of apps built and launched by our community
+              members. See how ideas transform into reality, showcase your own
+              creations, and inspire others to innovate.
             </p>
           </CardContent>
           <CardFooter>

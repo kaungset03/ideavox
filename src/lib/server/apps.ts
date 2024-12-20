@@ -5,41 +5,68 @@ import { createAdminClient, createSessionClient } from "./appwrite";
 import { z } from "zod";
 import { revalidatePath } from "next/cache";
 
-const FormSchema = z.object({
+const CreateAppSchema = z.object({
   name: z.string().min(5),
-  description: z.string().min(10),
+  description: z.string().min(30),
   source: z.string().optional(),
   live: z.string().url(),
 });
 
-export async function createApp(formData: FormData) {
-  const { name, description, source, live } = FormSchema.parse({
-    name: formData.get("name") as string,
-    description: formData.get("description") as string,
-    source: formData.get("source") as string,
-    live: formData.get("live") as string,
-  });
-  const { databases, account } = await createSessionClient();
-  const user = await account.get();
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const documentData: any = {
-    name,
-    description,
-    userId: user.$id,
-    username: user.name,
-    live,
-    created: new Date().toISOString(),
+export async function createApp(previousState: any, formData: FormData) {
+  const formDataObj = {
+    name: formData.get("name"),
+    description: formData.get("description"),
+    source: formData.get("source"),
+    live: formData.get("live"),
   };
-  if (source) {
-    documentData.source = source;
+
+  const validated = CreateAppSchema.safeParse(formDataObj);
+
+  if (!validated.success) {
+    return {
+      ...previousState,
+      data: { ...previousState.data, ...formDataObj },
+      zodErrors: validated.error.flatten().fieldErrors,
+      message: "Validation failed",
+    };
   }
-  await databases.createDocument(
-    process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID!,
-    process.env.NEXT_PUBLIC_APPWRITE_APPS_COLLECTION_ID!,
-    ID.unique(),
-    documentData
-  );
-  revalidatePath("/built-apps");
+
+  try {
+    const { databases, account } = await createSessionClient();
+    const user = await account.get();
+    const documentData: any = {
+      name: formDataObj.name,
+      description: formDataObj.description,
+      live: formDataObj.live,
+      userId: user.$id,
+      username: user.name,
+      created: new Date().toISOString(),
+    };
+
+    if (formDataObj.source) {
+      documentData.source = formDataObj.source;
+    }
+
+    await databases.createDocument(
+      process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID!,
+      process.env.NEXT_PUBLIC_APPWRITE_APPS_COLLECTION_ID!,
+      ID.unique(),
+      documentData
+    );
+    revalidatePath("/built-apps");
+    return {
+      ...previousState,
+      data: { name: "", description: "", source: "", live: "" },
+      message: "App submitted successfully",
+    };
+  } catch (error) {
+    console.error(error);
+    return {
+      ...previousState,
+      data: { ...previousState, ...formDataObj },
+      message: "An unexpected error occurred",
+    };
+  }
 }
 
 export async function getApps() {

@@ -6,6 +6,7 @@ import ThemeToggle from "@/components/ThemeToggle";
 import GithubLogin from "@/components/GithubLogin";
 import Sidebar from "@/components/Sidebar";
 import { SnowEffect } from "@/components/SnowEffect";
+import { Toaster } from "sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -58,7 +59,8 @@ export default function RootLayout({
                 </div>
               </main>
             </div>
-          </div> 
+          </div>
+          <Toaster position="top-right" richColors /> 
          <SnowEffect />
         </ThemeProvider>
       </body>

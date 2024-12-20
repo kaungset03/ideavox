@@ -56,7 +56,7 @@ const Snow = ({ amount, size }: { amount: number; size: number }) => {
 };
 
 export function SnowEffect() {
-  const [isSnowing, setIsSnowing] = useState(false);
+  const [isSnowing, setIsSnowing] = useState(true);
 
   return (
     <>
