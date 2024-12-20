@@ -22,7 +22,7 @@ const UserProfileDropdown = ({ user }: UserProfileDropdownProps) => {
   return (
     <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
       <DropdownMenuTrigger asChild>
-        <div className="w-9 aspect-square rounded-md bg-gradient-to-r from-purple-400 via-pink-500 to-red-400" />
+        <div className="w-9 aspect-square rounded-md bg-gradient-to-r from-purple-400 via-pink-500 to-red-400 cursor-pointer" />
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56" align="end" forceMount>
         <DropdownMenuLabel className="font-normal">

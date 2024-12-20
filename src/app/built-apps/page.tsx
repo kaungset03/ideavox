@@ -13,7 +13,7 @@ const page = async () => {
         {user && <SubmitApp />}
       </div>
       <Suspense fallback={<BuiltAppSkeleton />}>
-        <BuiltApps />
+        <BuiltApps user={user} />
       </Suspense>
     </section>
   

@@ -1,10 +1,19 @@
+"use client";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import { type Models } from "node-appwrite";
+import { deleteIdea } from "@/lib/server/ideas";
+import DeleteAlert from "@/components/DeleteAlert";
 
 type AppIdeaItemProps = {
   idea: AppIdea;
+  user: Models.User<Models.Preferences> | null;
 };
 
-const AppIdeaItem = ({ idea }: AppIdeaItemProps) => {
+const AppIdeaItem = ({ idea, user }: AppIdeaItemProps) => {
+  const deleteItem = async () => {
+    await deleteIdea(idea.$id);
+  };
+
   return (
     <Card className="mb-4 hover:shadow-md transition-shadow duration-200">
       <CardContent className="p-4">
@@ -16,7 +25,10 @@ const AppIdeaItem = ({ idea }: AppIdeaItemProps) => {
             <span className="text-sm font-bold">23</span>
           </div> */}
           <div className="flex-grow">
-            <h3 className="text-xl font-semibold mb-2">{idea.title}</h3>
+            <div className="flex items-start justify-between gap-x-5">
+              <h3 className="text-xl font-semibold mb-2">{idea.title}</h3>
+              {user && user.$id === idea.userId && <DeleteAlert onConfirm={deleteItem} />}
+            </div>
             <p className={`text-sm text-gray-600 dark:text-gray-300`}>
               {idea.description}
             </p>

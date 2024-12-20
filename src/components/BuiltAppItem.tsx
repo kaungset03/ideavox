@@ -1,11 +1,19 @@
+"use client";
 import { Code, ExternalLink } from "lucide-react";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import { type Models } from "node-appwrite";
+import { deleteApp } from "@/lib/server/apps";
+import DeleteAlert from "@/components/DeleteAlert";
 
 type BuiltAppItemProps = {
   app: BuiltApp;
+  user: Models.User<Models.Preferences> | null;
 };
 
-const BuiltAppItem = ({ app }: BuiltAppItemProps) => {
+const BuiltAppItem = ({ app, user }: BuiltAppItemProps) => {
+  const deleteItem = async () => {
+    await deleteApp(app.$id)
+  }
   return (
     <Card className="mb-4 hover:shadow-md transition-shadow duration-200">
       <CardContent className="p-4">
@@ -18,8 +26,11 @@ const BuiltAppItem = ({ app }: BuiltAppItemProps) => {
           </div> */}
           <div className="flex-grow">
             <div className="flex items-center mb-2">
-              <div>
-                <h3 className="text-xl font-semibold">{app.name}</h3>
+              <div className="w-full">
+                <div className="flex items-start justify-between gap-x-5">
+                  <h3 className="text-xl font-semibold">{app.name}</h3>
+                  {user && user.$id === app.userId && <DeleteAlert onConfirm={deleteItem} />}
+                </div>
                 <a
                   href={app.live}
                   target="_blank"

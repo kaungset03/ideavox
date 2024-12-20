@@ -83,3 +83,17 @@ export async function getApps() {
     return [];
   }
 }
+
+export async function deleteApp(id: string) {
+  try {
+    const { databases } = await createSessionClient();
+    await databases.deleteDocument(
+      process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID!,
+      process.env.NEXT_PUBLIC_APPWRITE_APPS_COLLECTION_ID!,
+      id
+    );
+    revalidatePath("/built-apps");
+  } catch (error) {
+    console.error(error);
+  }
+}

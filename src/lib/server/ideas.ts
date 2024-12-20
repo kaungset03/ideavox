@@ -72,3 +72,17 @@ export async function getIdeas() {
     return [];
   }
 }
+
+export async function deleteIdea(id: string) {
+  try {
+    const { databases } = await createSessionClient();
+    await databases.deleteDocument(
+      process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID!,
+      process.env.NEXT_PUBLIC_APPWRITE_IDEAS_COLLECTION_ID!,
+      id
+    );
+    revalidatePath("/app-ideas");
+  } catch (error) {
+    console.error(error);
+  }
+}
