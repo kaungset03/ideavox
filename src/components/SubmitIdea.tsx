@@ -42,9 +42,9 @@ const SubmitIdea = () => {
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
-        <Button className="flex items-center space-x-2">
+        <Button className="flex items-center gap-x-2">
           <PlusCircle />
-          Submit Idea
+          <span className="hidden sm:block">Submit Idea</span>
         </Button>
       </DialogTrigger>
       <DialogContent className="w-[95%] max-w-xl">

@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <section className="container mx-auto px-4 py-8">
       <h1 className="text-4xl font-bold text-center mb-8">
-        Welcome to App Ideas & Built Apps
+        Welcome to <span className="text-primary">Idea Vox</span>
       </h1>
       <p className="text-xl text-center mb-12">
         Discover innovative app ideas and explore apps built by our community.

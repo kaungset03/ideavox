@@ -46,22 +46,22 @@ const SubmitApp = () => {
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
-        <Button className="flex items-center space-x-2">
+        <Button className="flex items-center gap-x-2">
           <PlusCircle />
-          Submit App
+          <span className="hidden sm:block">Submit App</span>
         </Button>
       </DialogTrigger>
       <DialogContent className="w-[95%] max-w-xl">
         <DialogHeader>
           <DialogTitle>Submit Your Built App</DialogTitle>
-          <DialogDescription>Submit your app with a brief overview of its features, functionality, and purpose!</DialogDescription>
+          <DialogDescription>
+            Submit your app with a brief overview of its features,
+            functionality, and purpose!
+          </DialogDescription>
         </DialogHeader>
         <form className="space-y-6" action={formAction}>
           <div>
-            <label
-              htmlFor="appName"
-              className="block text-sm font-medium mb-1"
-            >
+            <label htmlFor="appName" className="block text-sm font-medium mb-1">
               App Name
             </label>
             <Input
@@ -91,10 +91,7 @@ const SubmitApp = () => {
             <InputError message={formState.zodErrors?.description} />
           </div>
           <div>
-            <label
-              htmlFor="liveUrl"
-              className="block text-sm font-medium mb-1"
-            >
+            <label htmlFor="liveUrl" className="block text-sm font-medium mb-1">
               Live URL
             </label>
             <Input
