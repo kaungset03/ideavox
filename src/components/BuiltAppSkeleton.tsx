@@ -29,7 +29,6 @@ const BuiltAppSkeleton = () => {
       <AppSkeleton />
       <AppSkeleton />
       <AppSkeleton />
-      <AppSkeleton />
     </>
   );
 };

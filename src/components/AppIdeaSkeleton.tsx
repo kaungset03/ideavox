@@ -25,7 +25,6 @@ const AppIdeaSkeleton = () => {
       <IdeaSkeleton />
       <IdeaSkeleton />
       <IdeaSkeleton />
-      <IdeaSkeleton />
     </>
   );
 };

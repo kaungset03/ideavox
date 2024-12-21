@@ -2,25 +2,81 @@
 
 Welcome to **Idea Vox** – a platform where creativity meets innovation. Share your app ideas, showcase your creations, and explore inspiration from a vibrant community of app enthusiasts.
 
-## **Features**
-- **Share App Ideas:** Submit and organize your creative app concepts for the world to see.
-- **Explore Ideas:** Browse a wide collection of app ideas shared by the community.
-- **Showcase Apps:** Display apps you've built and share their features, purpose, and impact.
-- **Get Inspired:** Find innovative ideas and connect with like-minded developers.
+---
 
-### **Coming Soon**
-- **Voting:** Users will soon be able to vote on their favorite app ideas and projects.
-- **Comments:** Leave comments on shared ideas or apps to engage with the community.
-- **Pagination:** Easily navigate through large collections of app ideas and showcased apps with pagination support.
+## **Features**
+
+### 🚀 **Share App Ideas**
+
+Submit your creative app concepts and organize them for the world to explore.
+
+### 🌍 **Explore Ideas**
+
+Dive into a diverse collection of app ideas shared by the vibrant Idea Vox community.
+
+### 🎨 **Showcase Apps**
+
+Display your developed apps and highlight their features, purpose, and impact.
+
+### 💡 **Get Inspired**
+
+Browse innovative ideas and connect with like-minded developers to spark new collaborations.
+
+---
+
+## **Roadmap**
+
+### 🛠️ **Upcoming Features**
+
+- **Voting System**: Enable users to vote on their favorite app ideas and projects.
+- **Commenting System**: Allow discussions and feedback on shared ideas or showcased apps.
+- **Pagination**: Seamless navigation through large collections of ideas and projects.
+
+---
 
 ## **Getting Started**
 
+### 🧰 **Prerequisites**
+
+Before you begin, ensure you have:
+
+- Node.js (v14 or later) installed
+- Appwrite server setup for backend services
+
+### 🏗️ **Setup Instructions**
+
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/kaungset03/ideavox.git
+   cd ideavox
+   ```
+
+2. **Install Dependencies**:
+    ```bash
+    npm install  
+    ```
+
+3. **Configure Environment Variables**:
+    - Create a `.env` file in the root directory.
+    - Add Appwrite credentials and other necessary configurations.
+    <br />
+
+4. **Run the Application**:
+    ```bash
+    npm run dev  
+    ```
+    Open your browser and navigate to `http://localhost:3000` to start using Idea Vox.
+
+
+---
 
 ### **How to Use**
 1. **Sign Up/Log In:** Create an account to start sharing and exploring.
 2. **Share Ideas:** Use the "Submit Your Idea" form to share your app concepts.
 3. **Showcase Apps:** Upload details of your completed apps to inspire others.
 4. **Browse & Explore:** Discover app ideas and projects submitted by the community.
+
+---
 
 ## **Technologies Used**
 - **Frontend:** React/Next.js

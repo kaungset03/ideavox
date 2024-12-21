@@ -6,7 +6,7 @@ import AppIdeaSkeleton from "@/components/AppIdeaSkeleton";
 
 const page = async () => {
   const user = await getLoggedInUser();
-  
+
   return (
     <section className="container mx-auto px-4 sm:px-0">
       <div className="flex items-center justify-between mb-6">
