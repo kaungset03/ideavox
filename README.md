@@ -57,8 +57,18 @@ Before you begin, ensure you have:
     ```
 
 3. **Configure Environment Variables**:
-    - Create a `.env` file in the root directory.
-    - Add Appwrite credentials and other necessary configurations.
+   - Create a `.env` file in the root directory.
+   - Add the following environment variables to the `.env` file:
+
+    ```env
+    NEXT_APPWRITE_KEY=
+    NEXT_PUBLIC_APPWRITE_ENDPOINT=https://cloud.appwrite.io/v1
+    NEXT_PUBLIC_APPWRITE_PROJECT=
+    NEXT_PUBLIC_APPWRITE_DATABASE_ID=
+    NEXT_PUBLIC_APPWRITE_IDEAS_COLLECTION_ID=
+    NEXT_PUBLIC_APPWRITE_APPS_COLLECTION_ID=
+    NEXT_PUBLIC_APP_URL=
+    ```
     <br />
 
 4. **Run the Application**:
